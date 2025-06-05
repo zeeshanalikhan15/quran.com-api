@@ -20,11 +20,15 @@ json.object! do
           end
         end
 
-        json.translated_name do
-          translated_name = recitation.translated_name
-          json.object! do
-            json.extract! translated_name, :name, :language_name
+        translated_name = recitation.translated_name
+        if translated_name
+          json.translated_name do
+            json.object! do
+              json.extract! translated_name, :name, :language_name
+            end
           end
+        else
+          json.translated_name nil
         end
       end
     end
