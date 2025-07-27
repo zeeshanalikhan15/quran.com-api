@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_013539) do
+ActiveRecord::Schema[7.0].define(version: 2025_07_27_210958) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -922,6 +922,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_013539) do
     t.string "name"
     t.integer "language_priority"
     t.integer "language_id"
+    t.boolean "is_default", default: false, null: false
     t.index ["chapter_id", "slug"], name: "index_slugs_on_chapter_id_and_slug"
     t.index ["chapter_id"], name: "index_slugs_on_chapter_id"
     t.index ["language_id"], name: "index_slugs_on_language_id"

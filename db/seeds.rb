@@ -47,3 +47,25 @@ Language.find_or_create_by!(
   direction: 'rtl',
   es_analyzer_default: 'arabic'
 )
+
+# Find default language
+language = Language.find_by(iso_code: 'en')
+
+TranslatedName.find_or_create_by!(
+  resource_type: 'Chapter',
+  resource_id: chapter.id,
+  language_id: language.id,
+  name: 'Al-Fatihah',
+  language_name: language.name
+)
+
+
+
+# Create a default slug for the chapter
+Slug.find_or_create_by!(
+  chapter_id: chapter.id,
+  slug: '1',
+  language_id: language.id,
+  is_default: true,
+  name: 'Al-Fatihah'
+)
