@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20220325102524
+# Schema version: 20230313013539
 #
 # Table name: qr_rooms
 #

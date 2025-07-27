@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20220723001532
+# Schema version: 20230313013539
 #
 # Table name: mushaf_juzs
 #

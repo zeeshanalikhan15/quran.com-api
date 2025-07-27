@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # == Schema Information
+# Schema version: 20230313013539
 #
 # Table name: verse_roots
 #

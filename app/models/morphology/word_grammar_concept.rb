@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20220123232023
+# Schema version: 20230313013539
 #
 # Table name: morphology_word_grammar_concepts
 #

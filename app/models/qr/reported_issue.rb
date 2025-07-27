@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20220326180952
+# Schema version: 20230313013539
 #
 # Table name: qr_reported_issues
 #
