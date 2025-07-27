@@ -21,9 +21,7 @@ class BasePresenter
     end
   end
 
-  def get_mushaf_id
-    get_mushaf.id
-  end
+  delegate :id, to: :get_mushaf, prefix: true
 
   def get_mushaf_type
     get_mushaf.mushaf_type
@@ -34,8 +32,8 @@ class BasePresenter
       @lookahead.selects?('words')
     end
   end
-  protected
 
+  protected
   def raise_404(message)
     raise RestApi::RecordNotFound.new(message)
   end
@@ -43,8 +41,8 @@ class BasePresenter
   def get_mushaf
     strong_memoize :mushaf do
       mushaf = if mushaf_id
-                 Mushaf.approved.find_by(id: mushaf_id)
-               end
+        Mushaf.approved.find_by(id: mushaf_id)
+      end
 
 
       mushaf || Mushaf.default

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 # Schema version: 20230313013539
 #
@@ -36,6 +38,6 @@ class MushafJuz < ApplicationRecord
   }
 
   def verses
-    Verse.where("id BETWEEN :from AND :to", from: first_verse_id, to: last_verse_id)
+    Verse.where('id BETWEEN :from AND :to', from: first_verse_id, to: last_verse_id)
   end
 end

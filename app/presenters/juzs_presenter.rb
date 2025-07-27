@@ -20,10 +20,10 @@ class JuzsPresenter < BasePresenter
 
   def mushaf_juzs
     list = if get_mushaf.indopak?
-             MushafJuz.indopak
-           else
-             MushafJuz.madani
-           end
+      MushafJuz.indopak
+    else
+      MushafJuz.madani
+    end
 
     list.order('juz_number ASC')
   end

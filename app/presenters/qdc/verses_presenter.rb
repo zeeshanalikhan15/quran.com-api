@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Qdc
   class VersesPresenter < ::VersesPresenter
     WORDS_FIELDS = [
@@ -10,7 +11,7 @@ module Qdc
       'text_imlaei',
       'text_uthmani_simple',
       'text_uthmani_tajweed',
-      'qpc_uthmani_hafs', #TODO: deprecated and renamed to text_qpc_hafs
+      'qpc_uthmani_hafs', # TODO: deprecated and renamed to text_qpc_hafs
       'text_qpc_hafs',
       'text_qpc_nastaleeq_hafs',
       'text_qpc_nastaleeq',
@@ -82,7 +83,7 @@ module Qdc
           reciter: fetch_reciter
         )
 
-        raise_404("Ayah not found") unless result
+        raise_404('Ayah not found') unless result
         result
       end
     end
@@ -124,7 +125,6 @@ module Qdc
     end
 
     protected
-
     def chapter_ids
       verses.pluck(:chapter_id).uniq
     end

@@ -30,7 +30,6 @@ class Audio::SegmentPresenter < Audio::RecitationPresenter
   end
 
   protected
-
   # Find timestamp range for surah, ayah or words
   def filter_timestamps(segments)
     return [] if segments.blank?

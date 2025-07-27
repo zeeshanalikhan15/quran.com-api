@@ -75,7 +75,7 @@ class Word < ApplicationRecord
 
   alias_attribute :v1_page, :page_number
   alias_attribute :line_v1, :line_number
-  #TODO: deprecated and renamed to text_qpc_hafs
+  # TODO: deprecated and renamed to text_qpc_hafs
   alias_attribute :qpc_uthmani_hafs, :text_qpc_hafs
 
   def get_qpc_page_number(mushaf_code)

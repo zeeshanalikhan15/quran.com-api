@@ -29,7 +29,7 @@ RSpec.describe TranslatedName do
     it { is_expected.to belong_to :resource }
   end
 
-  context '#methods' do
+  describe '#methods' do
     it { expect(described_class).to respond_to(:filter_by_language_or_default) }
   end
 

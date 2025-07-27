@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 # Schema version: 20230313013539
 #
@@ -21,7 +23,7 @@ class Qr::Tag < QrRecord
   has_many :post_tags, class_name: 'Qr::PostTag'
   has_many :posts, through: :post_tags, class_name: 'Qr::Post'
 
-  scope :approved, -> {where approved: true}
+  scope :approved, -> { where approved: true }
 
   def hash_tag
     "##{name}"

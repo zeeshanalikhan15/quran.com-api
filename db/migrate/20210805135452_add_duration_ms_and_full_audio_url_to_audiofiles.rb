@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddDurationMsAndFullAudioUrlToAudiofiles < ActiveRecord::Migration[6.1]
   def change
     add_column :audio_chapter_audio_files, :duration_ms, :integer

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Search
   class QuranSearchClient < Search::Client
     TRANSLATION_LANGUAGES = Language.with_translations
@@ -24,7 +25,7 @@ module Search
 
       # For debugging, copy the query and paste in kibana for debugging
       if DEBUG_ES_QUERIES
-        File.open("es_queries/v3_last_query.json", "wb") do |f|
+        File.open('es_queries/v3_last_query.json', 'wb') do |f|
           f << "indexes: #{indexes} "
           f << search_definition.to_json
         end
@@ -34,7 +35,6 @@ module Search
     end
 
     protected
-
     def search_definition(highlight_size = 500)
       {
         _source: source_attributes,
@@ -94,7 +94,7 @@ module Search
             }
           },
           inner_hits: {
-            _source: ["words.id", "words.text_qpc_hafs"]
+            _source: ['words.id', 'words.text_qpc_hafs']
           }
         }
       }
@@ -111,7 +111,7 @@ module Search
                 fields: [
                   'text_*.*',
                 ],
-                type: "phrase"
+                type: 'phrase'
               }
             }
           ]
@@ -174,7 +174,7 @@ module Search
 
     def translation_query
       query = simple_match_query(
-        fields: ["text"],
+        fields: ['text'],
         op: 'AND'
       )
 

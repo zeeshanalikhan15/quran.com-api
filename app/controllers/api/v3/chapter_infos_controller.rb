@@ -9,7 +9,6 @@ module Api::V3
     end
 
     protected
-
     def chapter_info
       finder = ChapterFinder.new
       chapter = finder.find(params[:id])

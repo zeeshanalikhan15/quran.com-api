@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :qr_author, class: 'Qr::Author' do
-    name { "MyString" }
+    name { 'MyString' }
     verified { false }
-    avatar_url { "MyString" }
-    bio { "MyString" }
-    user_type { "MyString" }
+    avatar_url { 'MyString' }
+    bio { 'MyString' }
+    user_type { 'MyString' }
   end
 end

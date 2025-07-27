@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateResourceContentStats < ActiveRecord::Migration[5.0]
   def change
     create_table :resource_content_stats do |t|

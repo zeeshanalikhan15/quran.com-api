@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMorphologyDerivedWords < ActiveRecord::Migration[6.1]
   def change
     create_table :morphology_derived_words do |t|

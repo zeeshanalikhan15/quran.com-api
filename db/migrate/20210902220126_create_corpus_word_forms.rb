@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCorpusWordForms < ActiveRecord::Migration[6.1]
   def change
     create_table :corpus_word_forms do |t|

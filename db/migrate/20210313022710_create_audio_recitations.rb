@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAudioRecitations < ActiveRecord::Migration[6.1]
   def change
     create_table :audio_recitations do |t|

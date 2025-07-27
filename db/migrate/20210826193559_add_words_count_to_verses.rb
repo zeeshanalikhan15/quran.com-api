@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddWordsCountToVerses < ActiveRecord::Migration[6.1]
   def change
     add_column :verses, :words_count, :integer

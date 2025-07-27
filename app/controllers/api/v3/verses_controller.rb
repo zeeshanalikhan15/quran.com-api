@@ -24,7 +24,6 @@ module Api::V3
     end
 
     private
-
     def pagination_dict(finder)
       {
         current_page: finder.current_page,

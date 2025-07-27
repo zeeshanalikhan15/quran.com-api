@@ -21,7 +21,7 @@ module Qdc
 
           # For debugging, copy the query and paste in kibana for debugging
           if DEBUG_ES_QUERIES
-            File.open("es_queries/last_navigational_query.json", "wb") do |f|
+            File.open('es_queries/last_navigational_query.json', 'wb') do |f|
               f << search_definition.to_json
             end
           end
@@ -31,7 +31,6 @@ module Qdc
       end
 
       protected
-
       def search_definition
         {
           _source: source_attributes,

@@ -12,7 +12,6 @@ module Api::V3
     end
 
     protected
-
     def verse
       finder = VerseFinder.new(params)
 
@@ -26,7 +25,7 @@ module Api::V3
                               .or(approved_tafsir.where(slug: params[:tafsir]))
                               .first
 
-      tafsir&.id || raise_not_found("tafsir not found")
+      tafsir&.id || raise_not_found('tafsir not found')
     end
   end
 end

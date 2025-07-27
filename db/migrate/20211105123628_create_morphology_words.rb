@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMorphologyWords < ActiveRecord::Migration[6.1]
   def change
     rename_table :corpus_morphology_terms, :morphology_grammar_terms

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Qr
   class ReflectionsFinder < BaseFinder
     VALID_FILTERS = ['latest', 'popular', 'random', 'lessons']
 
-    #TODO: add language filter
+    # TODO: add language filter
     def filter(verified:, authors:, tags:, ranges:, filter: nil, include_author: false, include_comments: false, op: 'and')
       filter = VALID_FILTERS.include?(filter) ? filter : 'latest'
 
@@ -57,9 +59,8 @@ module Qr
     end
 
     protected
-
     def load_verified(posts)
-      posts.joins(:author).where("qr_authors.user_type IN(:user_type) OR qr_authors.verified = :verified OR qr_posts.verified = :verified", verified: true, user_type: [1, 2])
+      posts.joins(:author).where('qr_authors.user_type IN(:user_type) OR qr_authors.verified = :verified OR qr_posts.verified = :verified', verified: true, user_type: [1, 2])
     end
 
     # Latest posts first
@@ -121,9 +122,9 @@ module Qr
         end
 
         # Disable full surah reflection
-        #if op == 'or'
+        # if op == 'or'
         #  filter_ids += filter_ids_for_full_surah(verse_range)
-        #end
+        # end
       end
 
       filter_ids

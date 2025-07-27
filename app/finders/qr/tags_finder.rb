@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Qr
   class TagsFinder < BaseFinder
     def tags(name: nil)

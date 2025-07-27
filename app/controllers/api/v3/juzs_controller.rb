@@ -12,7 +12,7 @@ module Api::V3
       if @presenter.exists?
         render
       else
-        render_404("Juz not found. Please select valid juz number from 1-30")
+        render_404('Juz not found. Please select valid juz number from 1-30')
       end
     end
 

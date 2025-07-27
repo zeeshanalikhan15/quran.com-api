@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Search
   class Results
     QURAN_AYAHS_INDEX = 'quran_verses'
@@ -35,7 +36,6 @@ module Search
     end
 
     protected
-
     def total_count
       @search.response['hits']['total']['value']
     end
@@ -56,7 +56,7 @@ module Search
         if QURAN_AYAHS_INDEX == hit['_index']
           highlighted_words = hit.dig('inner_hits', 'words', 'hits', 'hits')
           document['highlighted_words'] = highlighted_words.map do |w|
-            w['_source']["id"]
+            w['_source']['id']
           end
         end
 

@@ -15,7 +15,7 @@ class ChapterPresenter < BasePresenter
   end
 
   def chapters
-   finder.all_with_eager_load(locale: locale)
+    finder.all_with_eager_load(locale: locale)
   end
 
   def include_slugs?
@@ -35,7 +35,7 @@ class ChapterPresenter < BasePresenter
              .where(chapter_id: chapter.id)
              .filter_by_language_or_default(fetch_locale)
 
-    info || raise_404("Surah not found")
+    info || raise_404('Surah not found')
   end
 
   protected

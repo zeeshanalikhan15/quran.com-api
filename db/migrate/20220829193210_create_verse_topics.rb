@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateVerseTopics < ActiveRecord::Migration[7.0]
   def change
     create_table :verse_topics do |t|

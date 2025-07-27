@@ -11,7 +11,7 @@ module Api::V4
       @rub_el_hizb = RubElHizb.find_by(rub_el_hizb_number: params[:id])
 
       if @rub_el_hizb.nil?
-        render_404("Rub el Hizb not found. Please select valid rub el hizb number from 1-240")
+        render_404('Rub el Hizb not found. Please select valid rub el hizb number from 1-240')
       else
         render
       end

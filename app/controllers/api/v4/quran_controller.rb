@@ -10,15 +10,15 @@ module Api::V4
       @filter_names = humanize_filter_names(filters)
 
       @translations = if @resource
-                        translations = Translation.order('verse_id ASC').where(filters)
-                        if @presenter.render_footnotes?
-                          translations = translations.includes(:foot_notes)
-                        end
+        translations = Translation.order('verse_id ASC').where(filters)
+        if @presenter.render_footnotes?
+          translations = translations.includes(:foot_notes)
+        end
 
-                        translations
-                      else
-                        []
-                      end
+        translations
+      else
+        []
+      end
 
       render
     end
@@ -29,10 +29,10 @@ module Api::V4
       @filter_names = humanize_filter_names(filters)
 
       @tafsirs = if (@resource = fetch_tafsir_resource)
-                   Tafsir.order('verse_id ASC').where(filters)
-                 else
-                   []
-                 end
+        Tafsir.order('verse_id ASC').where(filters)
+      else
+        []
+      end
 
       render
     end
@@ -43,12 +43,12 @@ module Api::V4
       @filter_names = humanize_filter_names(filters)
 
       @audio_files = if (@recitation = fetch_approved_recitation)
-                       filters[:recitation_id] = @recitation.id
+        filters[:recitation_id] = @recitation.id
 
-                       @audio_files = AudioFile.order('verse_id ASC').where(filters)
-                     else
-                       []
-                     end
+        @audio_files = AudioFile.order('verse_id ASC').where(filters)
+      else
+        []
+      end
       render
     end
 
@@ -75,7 +75,6 @@ module Api::V4
     end
 
     protected
-
     def fetch_script_type
       script = params[:script].to_s
 

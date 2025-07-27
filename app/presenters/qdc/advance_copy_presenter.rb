@@ -68,7 +68,6 @@ module Qdc
     end
 
     protected
-
     def translation_ids
       strong_memoize :translation_ids do
         ids = params[:translations]

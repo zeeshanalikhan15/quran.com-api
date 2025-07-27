@@ -27,7 +27,6 @@ module Api::Qdc
     end
 
     protected
-
     def init_presenter
       params[:verified] = true if params[:verified].nil?
 

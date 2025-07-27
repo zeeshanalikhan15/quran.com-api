@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateRukus < ActiveRecord::Migration[6.1]
   def change
     create_table :rukus do |t|

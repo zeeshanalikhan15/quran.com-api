@@ -48,7 +48,7 @@ module QuranNavigationSearchable
         end
       end
 
-      puts "=====Done importing #{self.name.pluralize}==== Error count: #{errors}"
+      Rails.logger.debug "=====Done importing #{self.name.pluralize}==== Error count: #{errors}"
     end
 
     def self.bulk_es_documents_with_variation

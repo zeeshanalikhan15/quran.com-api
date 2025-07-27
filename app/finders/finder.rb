@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Finder
   include QuranUtils::StrongMemoize
   attr_reader :params,
@@ -64,7 +66,7 @@ class Finder
         0
       else
         (total_records / per_page.to_f).ceil
-     end
+      end
     end
   end
 
@@ -73,7 +75,6 @@ class Finder
   end
 
   protected
-
   def find_mushaf_page(mushaf: nil)
     mushaf ||= Mushaf.default
     page_number = params[:page_number].to_i.abs
@@ -109,10 +110,10 @@ class Finder
     juz_number = params[:juz_number].to_i.abs
 
     juzs = if mushaf && mushaf.indopak?
-             MushafJuz.indopak
-           else
-             MushafJuz.madani
-           end
+      MushafJuz.indopak
+    else
+      MushafJuz.madani
+    end
 
     juzs.find_by(juz_number: juz_number) || raise_invalid_juz_number
   end
@@ -136,7 +137,7 @@ class Finder
   end
 
   def raise_invalid_ayah_number
-    raise(RestApi::RecordNotFound.new("Ayah key or ID is invalid. Please select valid ayah key(1:1 to 114:6) or ID(1 to 6236)."))
+    raise(RestApi::RecordNotFound.new('Ayah key or ID is invalid. Please select valid ayah key(1:1 to 114:6) or ID(1 to 6236).'))
   end
 
   # Convert the input into ayah id. Input could be ayah or or simple integer value
@@ -144,39 +145,39 @@ class Finder
     return if ayah_id_or_key.blank?
 
     id = if ayah_id_or_key.present? && ayah_id_or_key.include?(':')
-           QuranUtils::Quran.get_ayah_id_from_key(ayah_id_or_key)
-         else
-           ayah_id_or_key.to_i
-         end
+      QuranUtils::Quran.get_ayah_id_from_key(ayah_id_or_key)
+    else
+      ayah_id_or_key.to_i
+    end
 
     id&.positive? ? id : nil
   end
 
   def raise_invalid_surah_number
-    raise(RestApi::RecordNotFound.new("Surah number or slug is invalid. Please select valid slug or surah number from 1-114."))
+    raise(RestApi::RecordNotFound.new('Surah number or slug is invalid. Please select valid slug or surah number from 1-114.'))
   end
 
   def raise_invalid_juz_number
-    raise(RestApi::RecordNotFound.new("Juz number is invalid. Please select valid juz number from 1-30."))
+    raise(RestApi::RecordNotFound.new('Juz number is invalid. Please select valid juz number from 1-30.'))
   end
 
   def raise_invalid_manzil_number
-    raise(RestApi::RecordNotFound.new("Manzil number is invalid. Please select valid manzil number from 1-7."))
+    raise(RestApi::RecordNotFound.new('Manzil number is invalid. Please select valid manzil number from 1-7.'))
   end
 
   def raise_invalid_hizb_number
-    raise RestApi::RecordNotFound.new("Hizb number is invalid. Please select valid hizb number from 1-60.")
+    raise RestApi::RecordNotFound.new('Hizb number is invalid. Please select valid hizb number from 1-60.')
   end
 
   def raise_invalid_rub_el_hizb_number
-    raise RestApi::RecordNotFound.new("Rub el hizb number is invalid. Please select valid rub el hizb number from 1-240.")
+    raise RestApi::RecordNotFound.new('Rub el hizb number is invalid. Please select valid rub el hizb number from 1-240.')
   end
 
   def raise_invalid_mushaf_page_number
-    raise RestApi::RecordNotFound.new("Mushaf page number is invalid. Please select valid page from 1-604.")
+    raise RestApi::RecordNotFound.new('Mushaf page number is invalid. Please select valid page from 1-604.')
   end
 
   def raise_invalid_ruku_number
-    raise RestApi::RecordNotFound.new("Ruku not found. Please select valid ruku number from 1-558.")
+    raise RestApi::RecordNotFound.new('Ruku not found. Please select valid ruku number from 1-558.')
   end
 end

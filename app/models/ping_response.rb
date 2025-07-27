@@ -22,5 +22,4 @@ class PingResponse
       }
     end
   end
-
 end

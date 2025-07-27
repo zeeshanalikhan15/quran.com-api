@@ -11,7 +11,7 @@ module Api::V4
       @ruku = Ruku.find_by(id: params[:id])
 
       if @ruku.nil?
-        render_404("Ruku not found. Please select valid ruku number from 1-558")
+        render_404('Ruku not found. Please select valid ruku number from 1-558')
       else
         render
       end

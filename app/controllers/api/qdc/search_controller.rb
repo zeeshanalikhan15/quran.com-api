@@ -8,7 +8,7 @@ module Api::Qdc
       if do_search
         render
       else
-        render partial: 'error', status: 500
+        render partial: 'error', status: :internal_server_error
       end
     end
 
@@ -22,7 +22,6 @@ module Api::Qdc
     end
 
     protected
-
     def language
       (params[:language] || params[:locale]).presence
     end

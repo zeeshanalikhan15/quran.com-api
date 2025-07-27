@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddTopicFields < ActiveRecord::Migration[7.0]
   def change
     add_column :topics, :wikipedia_link, :string

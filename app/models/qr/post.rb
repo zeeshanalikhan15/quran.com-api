@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 # Schema version: 20230313013539
 #
@@ -40,7 +42,7 @@ class Qr::Post < QrRecord
   has_many :post_tags, class_name: 'Qr::PostTag'
   has_many :tags, through: :post_tags, class_name: 'Qr::Tag'
   has_many :comments, class_name: 'Qr::Comment'
-  has_many :recent_comments, -> {order('created_at DESC').limit(10)}, class_name: 'Qr::Comment'
+  has_many :recent_comments, -> { order('created_at DESC').limit(10) }, class_name: 'Qr::Comment'
 
   enum room_post_status: {
     as_room:  1,

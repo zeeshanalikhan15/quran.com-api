@@ -18,20 +18,20 @@ class ApplicationController < ActionController::API
     raise RestApi::RecordNotFound.new(message)
   end
 
-  def render_404(error=nil)
-    render partial: "api/errors/404", locals: { message: error.to_s }, status: :not_found
+  def render_404(error = nil)
+    render partial: 'api/errors/404', locals: { message: error.to_s }, status: :not_found
   end
 
-  def render_bad_request(error=nil, status=:bad_request)
-    render partial: "api/errors/bad_request", locals: { message: error.to_s }, status: status
+  def render_bad_request(error = nil, status = :bad_request)
+    render partial: 'api/errors/bad_request', locals: { message: error.to_s }, status: status
   end
 
-  def render_422(error=nil)
-    render partial: "api/errors/422", locals: { message: error.to_s }, status: :unprocessable_entity
+  def render_422(error = nil)
+    render partial: 'api/errors/422', locals: { message: error.to_s }, status: :unprocessable_entity
   end
 
   def render_request_error(error, status)
-    render partial: "api/errors/requst_error", locals: { message: error.to_s, status: status }, status: status
+    render partial: 'api/errors/requst_error', locals: { message: error.to_s, status: status }, status: status
   end
 
   def fetch_locale
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::API
 
   def set_cache_headers
     if action_name != 'random'
-      expires_in 7.day, public: true
+      expires_in 7.days, public: true
       # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
       headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
     end
@@ -68,7 +68,7 @@ class ApplicationController < ActionController::API
 
   def after_timestamp
     if time = params[:updated_after].presence
-      time !~ /\D/ ? DateTime.strptime(time, '%s') : Time.parse(time)
+      !/\D/.match?(time) ? DateTime.strptime(time, '%s') : Time.zone.parse(time)
     end
   end
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Qdc
   module Search
     class Results
@@ -36,7 +37,6 @@ module Qdc
       end
 
       protected
-
       def total_count
         @search.response['hits']['total']['value']
       end
@@ -53,7 +53,7 @@ module Qdc
           if QURAN_AYAHS_INDEX == hit['_index']
             highlighted_words = hit.dig('inner_hits', 'words', 'hits', 'hits')
             document['highlighted_words'] = highlighted_words.map do |w|
-              w['_source']["id"]
+              w['_source']['id']
             end
           end
 

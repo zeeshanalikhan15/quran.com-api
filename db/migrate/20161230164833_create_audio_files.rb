@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAudioFiles < ActiveRecord::Migration[5.0]
   def change
     create_table :audio_files do |t|

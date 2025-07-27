@@ -10,7 +10,6 @@ class V4::TranslationFinder < Finder
   end
 
   protected
-
   def load_translate_range(filter, resource_id)
     results = send("fetch_#{filter}", resource_id)
     results = results.limit(per_page)

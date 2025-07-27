@@ -75,7 +75,6 @@ module QuranUtils
     end
 
     protected
-
     def self.valid_ayah?(surah, ayah)
       ayah > 0 && SURAH_AYAH[surah - 1] && ayah <= SURAH_AYAH[surah - 1]
     end

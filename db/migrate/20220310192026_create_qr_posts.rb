@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateQrPosts < ActiveRecord::Migration[7.0]
   def change
     create_table :qr_posts do |t|

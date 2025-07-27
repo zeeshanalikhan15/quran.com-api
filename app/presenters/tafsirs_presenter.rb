@@ -24,9 +24,7 @@ class TafsirsPresenter < VersesPresenter
     @finder = V4::TafsirFinder.new(params)
   end
 
-  def resource_slug
-    resource.slug
-  end
+  delegate :slug, to: :resource, prefix: true
 
   def resource_translated_name
     names = TranslatedName.where(resource_id: resource_id, resource_type: 'ResourceContent')
@@ -61,7 +59,6 @@ class TafsirsPresenter < VersesPresenter
   end
 
   protected
-
   def resource_id
     resource.id
   end
@@ -80,12 +77,12 @@ class TafsirsPresenter < VersesPresenter
                             .or(approved_Tafsirs.where(slug: id_or_slug))
                             .first
 
-        raise_404("Tafsir not found") unless  approved_tafsir
+        raise_404('Tafsir not found') unless  approved_tafsir
 
         params[:resource_id] = approved_tafsir.id
         approved_tafsir
       else
-        raise_404("Tafsir not found")
+        raise_404('Tafsir not found')
       end
     end
   end

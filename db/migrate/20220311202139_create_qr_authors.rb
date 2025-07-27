@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateQrAuthors < ActiveRecord::Migration[7.0]
   def change
     create_table :qr_authors do |t|

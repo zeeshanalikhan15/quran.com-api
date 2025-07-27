@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 # Schema version: 20230313013539
 #
@@ -26,7 +27,7 @@
 #
 
 class Mushaf < ApplicationRecord
-  #TODO: add field in db instead of hard coding
+  # TODO: add field in db instead of hard coding
   INDOPAK_MUSHAFS = [
     3, # pdms, disable now
     6, # 15 lines

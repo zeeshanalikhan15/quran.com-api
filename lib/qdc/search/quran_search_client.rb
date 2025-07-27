@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Qdc
   module Search
     class QuranSearchClient < Search::Client
@@ -21,7 +22,7 @@ module Qdc
 
         # For debugging, copy the query and paste in kibana for debugging
         if DEBUG_ES_QUERIES
-          File.open("es_queries/last_query.json", "wb") do |f|
+          File.open('es_queries/last_query.json', 'wb') do |f|
             f << "indexes: #{indexes} "
             f << search_definition.to_json
           end
@@ -31,7 +32,6 @@ module Qdc
       end
 
       protected
-
       def search_definition(highlight_size = 500)
         {
           _source: source_attributes,
@@ -83,7 +83,7 @@ module Qdc
               }
             },
             inner_hits: {
-              _source: ["words.id", "words.text_qpc_hafs"]
+              _source: ['words.id', 'words.text_qpc_hafs']
             }
           }
         }
@@ -100,7 +100,7 @@ module Qdc
                   fields: [
                     'text_*.*',
                   ],
-                  type: "phrase"
+                  type: 'phrase'
                 }
               }
             ]
@@ -163,7 +163,7 @@ module Qdc
 
       def translation_query
         query = simple_match_query(
-          fields: ["text"],
+          fields: ['text'],
           op: 'AND'
         )
 

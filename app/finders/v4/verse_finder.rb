@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-#TODO: replace with QdcFinder
+# TODO: replace with QdcFinder
 class V4::VerseFinder < ::VerseFinder
   def random_verse(filters, language_code, words: true, tafsirs: false, translations: false, audio: false)
     @results = Verse.unscope(:order).where(filters).order('RANDOM()').limit(3)
@@ -130,7 +130,7 @@ class V4::VerseFinder < ::VerseFinder
     @results
   end
 
-  def fetch_by_juz(mushaf:nil)
+  def fetch_by_juz(mushaf: nil)
     juz = find_juz(mushaf: mushaf)
     verse_start = juz.first_verse_id + (current_page - 1) * per_page
     verse_end = min(verse_start + per_page, juz.last_verse_id + 1)

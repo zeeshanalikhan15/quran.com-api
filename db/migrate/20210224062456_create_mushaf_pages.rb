@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMushafPages < ActiveRecord::Migration[6.1]
   def change
     create_table :mushaf_pages do |t|

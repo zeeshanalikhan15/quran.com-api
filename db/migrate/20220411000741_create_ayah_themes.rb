@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAyahThemes < ActiveRecord::Migration[7.0]
   def change
     create_table :ayah_themes do |t|

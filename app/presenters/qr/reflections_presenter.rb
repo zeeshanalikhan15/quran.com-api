@@ -68,7 +68,6 @@ module Qr
     end
 
     protected
-
     def filter_op
       params[:op] || 'and'
     end

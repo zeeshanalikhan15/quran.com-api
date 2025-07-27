@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMorphologyWordSegments < ActiveRecord::Migration[6.1]
   def change
     create_table :morphology_word_segments do |t|

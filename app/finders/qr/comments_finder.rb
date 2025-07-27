@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Qr
   class CommentsFinder < BaseFinder
     def comments(post_id:, include_author:, include_replies:)
@@ -17,7 +19,6 @@ module Qr
     end
 
     protected
-
     def eager_load_resources(author:, recent_replies: false, replies: false)
       eager_load = []
 
@@ -26,11 +27,11 @@ module Qr
       end
 
       if recent_replies
-        eager_load << (author ? {recent_replies: :author} : :recent_replies)
+        eager_load << (author ? { recent_replies: :author } : :recent_replies)
       end
 
       if replies
-        eager_load << (author ? {replies: :author} : :replies)
+        eager_load << (author ? { replies: :author } : :replies)
       end
 
       eager_load

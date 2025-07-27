@@ -11,7 +11,7 @@ module Api::V4
       @hizb = Hizb.find_by(hizb_number: params[:id])
 
       if @hizb.nil?
-        render_404("Hizb not found. Please select valid hizb number from 1-60")
+        render_404('Hizb not found. Please select valid hizb number from 1-60')
       else
         render
       end

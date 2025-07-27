@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateApiClients < ActiveRecord::Migration[7.0]
   def change
     create_table :api_clients do |t|
@@ -17,4 +19,3 @@ class CreateApiClients < ActiveRecord::Migration[7.0]
     end
   end
 end
-

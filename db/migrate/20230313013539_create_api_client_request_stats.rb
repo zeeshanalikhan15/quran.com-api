@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateApiClientRequestStats < ActiveRecord::Migration[7.0]
   def change
     create_table :api_client_request_stats do |t|

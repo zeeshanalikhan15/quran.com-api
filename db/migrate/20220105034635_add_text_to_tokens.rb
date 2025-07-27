@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddTextToTokens < ActiveRecord::Migration[6.1]
   def change
     add_column :tokens, :text, :text

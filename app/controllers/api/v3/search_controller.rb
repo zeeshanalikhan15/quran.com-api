@@ -13,7 +13,6 @@ module Api::V3
     end
 
     protected
-
     def language
       (params[:language] || params[:locale]).presence
     end

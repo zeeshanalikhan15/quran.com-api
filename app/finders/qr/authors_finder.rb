@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 module Qr
   class AuthorsFinder < BaseFinder
     VALID_FILTERS = ['scholars', 'students', 'verified', 'all']
 
     def authors(filter: nil)
       records = if VALID_FILTERS.include?(filter)
-                  if 'all' == filter
-                    Qr::Author
-                  else
-                    Qr::Author.send(filter)
-                  end.order('posts_count DESC')
-                else
-                  Qr::Author.verified.order('posts_count DESC')
-                end
+        if 'all' == filter
+          Qr::Author
+        else
+          Qr::Author.send(filter)
+        end.order('posts_count DESC')
+      else
+        Qr::Author.verified.order('posts_count DESC')
+      end
 
       paginate records
     end
@@ -22,7 +24,7 @@ module Qr
     end
 
     def followers(author_id)
-      #TODO
+      # TODO
       paginate Qr::Author.none
     end
   end

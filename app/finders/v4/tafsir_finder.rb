@@ -9,11 +9,10 @@ class V4::TafsirFinder < Finder
   end
 
   protected
-
   def load_tafsir_range(filter, resource_id)
     results = send("fetch_#{filter}", resource_id)
 
-    if "by_ayah" == filter
+    if 'by_ayah' == filter
       results = results.first
     else
       results = results.limit(per_page)
@@ -87,7 +86,7 @@ class V4::TafsirFinder < Finder
     @total_records = 1
 
     filter_tafsirs(resource_id)
-      .where(":ayah >= start_verse_id AND :ayah <= end_verse_id ", ayah: find_ayah.id)
+      .where(':ayah >= start_verse_id AND :ayah <= end_verse_id ', ayah: find_ayah.id)
   end
 
   def filter_tafsirs(resource_id)

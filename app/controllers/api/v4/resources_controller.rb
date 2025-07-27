@@ -2,7 +2,7 @@
 
 module Api::V4
   class ResourcesController < ApiController
-    #TODO: move the logic to presenters
+    # TODO: move the logic to presenters
     def chapter_reciters
       @presenter = ::Audio::RecitationPresenter.new(params)
       render
@@ -26,7 +26,7 @@ module Api::V4
       if @translation = fetch_translation_resource
         render
       else
-        render_404("Translation not found")
+        render_404('Translation not found')
       end
     end
 
@@ -55,7 +55,7 @@ module Api::V4
       if @tafsir = fetch_tafsir_resource
         render
       else
-        render_404("Tafsir not found")
+        render_404('Tafsir not found')
       end
     end
 
@@ -79,7 +79,7 @@ module Api::V4
       if @resource = @recitation&.get_resource_content
         render
       else
-        render_404("Recitation not found")
+        render_404('Recitation not found')
       end
     end
 
@@ -122,9 +122,9 @@ module Api::V4
               .filter_subtype(params[:type])
               .approved
 
-         render
+        render
       else
-        render_422("after_timestamp is invalid or missing. Please use a valid date or unix timestamp(in seconds)")
+        render_422('after_timestamp is invalid or missing. Please use a valid date or unix timestamp(in seconds)')
       end
     end
   end

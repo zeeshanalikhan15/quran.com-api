@@ -25,7 +25,7 @@ class SearchPresenter < BasePresenter
   end
 
   def no_results?
-    @search.nil? || @search.empty?
+    @search.blank?
   end
 
   def next_page
@@ -39,7 +39,7 @@ class SearchPresenter < BasePresenter
   end
 
   def get_v3_results
-    verses = load_verses(@results.pluck("verse_id").uniq)
+    verses = load_verses(@results.pluck('verse_id').uniq)
     search_result = {
     }
 
@@ -63,7 +63,7 @@ class SearchPresenter < BasePresenter
                                                               name: item['resource_name'],
                                                               language_name: item['language_name']
                                                             }
-        )
+                                                           )
       end
     end
 
@@ -71,7 +71,7 @@ class SearchPresenter < BasePresenter
   end
 
   def get_verses_results
-    verses = load_verses(@results.pluck("verse_id").uniq)
+    verses = load_verses(@results.pluck('verse_id').uniq)
     search_result = {
     }
 
@@ -92,7 +92,7 @@ class SearchPresenter < BasePresenter
                                                                resource_name: item['resource_name'],
                                                                language_name: item['language_name']
                                                              }
-        )
+                                                           )
       end
     end
 
@@ -100,7 +100,6 @@ class SearchPresenter < BasePresenter
   end
 
   protected
-
   def prepare_verse_words(item, verse)
     highlighted_words = item['highlighted_words']
 
@@ -120,7 +119,7 @@ class SearchPresenter < BasePresenter
 
   def load_verses(ids)
     verses = Verse.where(id: ids).eager_load(:words).select('verses.id, verses.text_uthmani')
-    verses.order("words.position ASC")
+    verses.order('words.position ASC')
   end
 
   def word_trans_language

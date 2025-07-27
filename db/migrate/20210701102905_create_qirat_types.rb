@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateQiratTypes < ActiveRecord::Migration[6.1]
   def change
     create_table :qirat_types do |t|

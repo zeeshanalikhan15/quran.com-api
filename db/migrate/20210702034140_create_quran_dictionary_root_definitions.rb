@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateQuranDictionaryRootDefinitions < ActiveRecord::Migration[6.1]
   def change
     create_table :dictionary_root_definitions do |t|

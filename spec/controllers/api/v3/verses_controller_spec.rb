@@ -1,13 +1,17 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Api::V3::VersesController, type: :controller do
   describe '#index' do
-    let(:_response) { get(:index, params: {chapter_id: 2, language: 'ur'}) }
     subject { _response }
+
+    let(:_response) { get(:index, params: { chapter_id: 2, language: 'ur' }) }
+
 
     it { is_expected.to be_successful }
 
-    context '#response' do
+    describe '#response' do
       subject { Oj.load(_response.body) }
 
       it 'returns words with correct order' do
@@ -26,7 +30,7 @@ RSpec.describe Api::V3::VersesController, type: :controller do
       end
 
       it 'returns valid JSON' do
-        pagination = {"current_page" => 1, "next_page" => 2, "prev_page" => nil, "total_pages" => 28, "total_count" => 286}
+        pagination = { 'current_page' => 1, 'next_page' => 2, 'prev_page' => nil, 'total_pages' => 28, 'total_count' => 286 }
 
         expect(subject['verses'].length).to eq(10)
         expect(subject['meta']).to eq(pagination)
@@ -35,21 +39,23 @@ RSpec.describe Api::V3::VersesController, type: :controller do
   end
 
   describe '#limit' do
-    let(:_response) { get(:index, params: {chapter_id: 2, language: 'bn', limit: 2, page: 2}) }
     subject { _response }
+
+    let(:_response) { get(:index, params: { chapter_id: 2, language: 'bn', limit: 2, page: 2 }) }
+
 
     it { is_expected.to be_successful }
 
-    context '#response' do
+    describe '#response' do
       subject { Oj.load(_response.body) }
 
       it 'returns valid JSON' do
         pagination = {
-          "current_page" => 2, # current page in params is 2
-          "next_page" => 3,
-          "prev_page" => 1,
-          "total_pages" => 143, # per page is 2 hence 143 pages
-          "total_count" => 286
+          'current_page' => 2, # current page in params is 2
+          'next_page' => 3,
+          'prev_page' => 1,
+          'total_pages' => 143, # per page is 2 hence 143 pages
+          'total_count' => 286
         }
 
         expect(subject['verses'].length).to eq(2)
@@ -59,9 +65,9 @@ RSpec.describe Api::V3::VersesController, type: :controller do
   end
 
   describe '#language' do
-    context '#urdu' do
+    describe '#urdu' do
       subject {
-        get(:index, params: {chapter_id: 2, language: 'ur', limit: 2, page: 2})
+        get(:index, params: { chapter_id: 2, language: 'ur', limit: 2, page: 2 })
       }
 
       it { is_expected.to be_successful }
@@ -73,9 +79,10 @@ RSpec.describe Api::V3::VersesController, type: :controller do
         expect(translation['language_name']).to eq('urdu')
       end
     end
-    context '#bengali' do
+
+    describe '#bengali' do
       subject {
-        get(:index, params: {chapter_id: 2, language: 'bn', limit: 2, page: 2})
+        get(:index, params: { chapter_id: 2, language: 'bn', limit: 2, page: 2 })
       }
 
       it { is_expected.to be_successful }
@@ -87,9 +94,10 @@ RSpec.describe Api::V3::VersesController, type: :controller do
         expect(translation['language_name']).to eq('bengali')
       end
     end
-    context '#fallback' do
+
+    describe '#fallback' do
       subject {
-        get(:index, params: {chapter_id: 2, language: 'abc', limit: 2, page: 2})
+        get(:index, params: { chapter_id: 2, language: 'abc', limit: 2, page: 2 })
       }
 
       it { is_expected.to be_successful }

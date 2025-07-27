@@ -40,7 +40,7 @@ RSpec.describe Juz do
     it_behaves_like 'modal have indexes on column', [['juz_number']]
   end
 
-  context '#elastic search' do
+  describe '#elastic search' do
     it 'has an index' do
       expect(described_class.index_name).to eq('chapters')
     end

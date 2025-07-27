@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+
 module Qdc
   module Search
     class NavigationalResults
-
       def initialize(search)
         @search = search
       end
@@ -28,7 +28,6 @@ module Qdc
       end
 
       protected
-
       def prepare_results
         @search.response['hits']['hits'].map do |result|
           result['_source']

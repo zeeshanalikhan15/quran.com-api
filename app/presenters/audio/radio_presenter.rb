@@ -16,7 +16,6 @@ class Audio::RadioPresenter < Audio::RecitationPresenter
   end
 
   def radio_station
-
   end
 
   def station_fields
@@ -35,10 +34,10 @@ class Audio::RadioPresenter < Audio::RecitationPresenter
     files = radio_station.chapter_audio_files.order('audio_chapter_audio_files.chapter_id ASC')
 
     files = if chapter_id
-              files.where(chapter_id: chapter_id)
-            else
-              files
-            end
+      files.where(chapter_id: chapter_id)
+    else
+      files
+    end
 
     if include_segments?
       files.includes(:audio_segments).order('audio_segments.verse_id ASC')

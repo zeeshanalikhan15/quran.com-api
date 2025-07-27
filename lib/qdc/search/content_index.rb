@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Qdc
   module Search
     #
@@ -14,10 +16,8 @@ module Qdc
 
       def self.remove_indexes
         TRANSLATION_LANGUAGES.each do |language|
-          begin
-            Verse.__elasticsearch__.delete_index! index: get_index_name(language)
-          rescue Elasticsearch::Transport::Transport::Errors::NotFound => e
-          end
+          Verse.__elasticsearch__.delete_index! index: get_index_name(language)
+        rescue Elasticsearch::Transport::Transport::Errors::NotFound => e
         end
       end
 
@@ -34,7 +34,7 @@ module Qdc
       end
 
       def self.import_translation_for_language(language)
-        puts "importing #{language.name} translations"
+        Rails.logger.debug "importing #{language.name} translations"
 
         LANG_INDEX_CLASSES[language.id].import(
           batch_size: 500,
@@ -58,7 +58,7 @@ module Qdc
         TRANSLATION_LANGUAGES.each do |language|
           lang_index_name = self.get_index_name(language)
 
-          puts "Setting up index #{lang_index_name} for #{language.name}"
+          Rails.logger.debug "Setting up index #{lang_index_name} for #{language.name}"
           LANG_INDEX_CLASSES[language.id] = Class.new(content_type) do
             include Elasticsearch::Model
 

@@ -33,15 +33,15 @@ class Audio::RecitationPresenter < BasePresenter
   end
 
   def recitation
-    recitations.find_by(id: recitation_id) || raise_404("Recitation not found")
+    recitations.find_by(id: recitation_id) || raise_404('Recitation not found')
   end
 
   def recitation_without_eager_load
-    Audio::Recitation.find_by(id: recitation_id) || raise_404("Recitation not found")
+    Audio::Recitation.find_by(id: recitation_id) || raise_404('Recitation not found')
   end
 
   def approved_recitation
-    approved_recitations.find_by(id: recitation_id) || raise_404("Recitation not found")
+    approved_recitations.find_by(id: recitation_id) || raise_404('Recitation not found')
   end
 
   def related_recitations
@@ -51,7 +51,7 @@ class Audio::RecitationPresenter < BasePresenter
   def chapter_audio_file
     file = approved_audio_files.where(chapter_id: chapter.id).first
 
-    file || raise_404("Sorry. Audio file for this surah is missing.")
+    file || raise_404('Sorry. Audio file for this surah is missing.')
   end
 
   def audio_files
@@ -64,10 +64,10 @@ class Audio::RecitationPresenter < BasePresenter
               .order('audio_chapter_audio_files.chapter_id ASC')
 
     files = if chapter_id
-              files.where(chapter_id: chapter.id)
-            else
-              files
-            end
+      files.where(chapter_id: chapter.id)
+    else
+      files
+    end
 
     if include_segments?
       files.includes(:audio_segments).order('audio_segments.verse_id ASC')
@@ -83,15 +83,14 @@ class Audio::RecitationPresenter < BasePresenter
   def chapter
     strong_memoize :chapter do
       if chapter_id
-        Chapter.find_using_slug(chapter_id) || raise_404("Surah number or slug is invalid. Please select valid slug or surah number from 1-114.")
+        Chapter.find_using_slug(chapter_id) || raise_404('Surah number or slug is invalid. Please select valid slug or surah number from 1-114.')
       else
-        raise_404("Surah number or slug is invalid. Please select valid slug or surah number from 1-114.")
+        raise_404('Surah number or slug is invalid. Please select valid slug or surah number from 1-114.')
       end
     end
   end
 
   protected
-
   def chapter_id
     strong_memoize :chapter_id do
       id = params[:chapter_number] || params[:chapter_id] || params[:chapter]

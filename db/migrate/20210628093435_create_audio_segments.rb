@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAudioSegments < ActiveRecord::Migration[6.1]
   def change
     # Store per ayah segments info of audio files

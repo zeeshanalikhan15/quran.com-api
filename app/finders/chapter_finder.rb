@@ -21,12 +21,12 @@ class ChapterFinder < Finder
                            .where(translated_names: { language_id: Language.default.id })
 
     chapters = if language.nil? || language.default?
-                 with_default_names
-               else
-                 chapters
-                   .where(translated_names: { language_id: language.id })
-                   .or(with_default_names)
-               end
+      with_default_names
+    else
+      chapters
+        .where(translated_names: { language_id: language.id })
+        .or(with_default_names)
+    end
 
     if !include_slugs
       # Fix slugs order and language
@@ -50,7 +50,6 @@ class ChapterFinder < Finder
   end
 
   protected
-
   def chapter_eager_loads(include_slugs)
     eager_load = [:translated_name]
 

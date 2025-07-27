@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ResourcePresenter < BasePresenter
   RESOURCE_FIELDS = [
     'id',

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Qdc
   class MushafPagePresenter < BasePresenter
     def pages
@@ -5,7 +7,7 @@ module Qdc
     end
 
     def page
-      mushaf_pages.find_by(page_number: page_number) || raise_404("Invalid page number")
+      mushaf_pages.find_by(page_number: page_number) || raise_404('Invalid page number')
     end
 
     # Find pages based on given filters and Mushaf
@@ -53,7 +55,7 @@ module Qdc
       (params[:page_number] || params[:id]).presence
     end
 
-    def lookup_verse_range(filter=nil)
+    def lookup_verse_range(filter = nil)
       filter ||= look_up_filter
 
       strong_memoize "look_up_#{filter}" do
@@ -99,7 +101,7 @@ module Qdc
         elsif params[:from].present? && params[:to].present?
           'by_range'
         else
-          raise_404 "Look up filter is invalid, please provide a valid filter(chapter_number, juz_number, page_number, manzil_number, rub_el_hizb_number, hizb_number, ruku_number)"
+          raise_404 'Look up filter is invalid, please provide a valid filter(chapter_number, juz_number, page_number, manzil_number, rub_el_hizb_number, hizb_number, ruku_number)'
         end
       end
     end

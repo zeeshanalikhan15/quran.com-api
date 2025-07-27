@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Qr
   class BaseFinder < Finder
     include Pagy::Backend
@@ -27,7 +29,6 @@ module Qr
     end
 
     protected
-
     def paginate(records)
       # pagy expect to start page number from 1, 0 will throw an exception
       page = [params[:page].to_i, 1].max

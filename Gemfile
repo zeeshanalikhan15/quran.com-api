@@ -17,15 +17,15 @@ gem 'turbostreamer', '= 1.9'
 
 gem 'graphql', '= 1.11.4'
 gem 'graphql-schema_comparator'
-#gem 'graphql-playground', github: 'naveed-ahmad/graphql-playground-rails'
+# gem 'graphql-playground', github: 'naveed-ahmad/graphql-playground-rails'
 
 
-#gem 'cld3', '= 3.4.4'
+# gem 'cld3', '= 3.4.4'
 gem 'cld3', '= 3.4.3'
 
 # Elasticsearch
+gem 'elasticsearch-model' # , '~> 7.2.0'
 gem 'elastic-transport'
-gem 'elasticsearch-model'#, '~> 7.2.0'
 gem 'typhoeus'
 
 # Paging the results
@@ -55,17 +55,17 @@ gem 'tzinfo-data'
 gem 'sentry-raven', group: [:production]
 
 group :development, :test do
-  gem 'pry-rails'
   gem 'apollo-tracing'
+  gem 'pry-rails'
   gem 'solargraph'
 end
 
 group :development do
-  gem 'byebug', platform: :mri
-  gem 'ruby-progressbar'
   gem 'benchmark-ips', require: false
   gem 'bullet'
+  gem 'byebug', platform: :mri
   gem 'derailed_benchmarks'
+  gem 'ruby-progressbar'
 
   # run some pre commit hooks
   gem 'pre-commit', require: false
@@ -80,12 +80,12 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails', '= 5.0.2'
-  gem 'shoulda-matchers', '~> 5.1.0'
-  gem 'simplecov', require: false
   gem 'factory_bot_rails', '>= 6.2.0'
+  gem 'json-schema-rspec'
+  gem 'rspec-rails', '= 5.0.2'
   gem 'rubocop-rails_config', '>= 1.9.1'
   gem 'rubocop-rspec', '>= 2.1.0'
-  gem 'json-schema-rspec'
+  gem 'shoulda-matchers', '~> 5.1.0'
+  gem 'simplecov', require: false
 end
-gem "kredis", "~> 1.3"
+gem 'kredis', '~> 1.3'

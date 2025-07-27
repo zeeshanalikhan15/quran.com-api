@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateWordStems < ActiveRecord::Migration[5.0]
   def change
     create_table :word_stems do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateQrPostTags < ActiveRecord::Migration[7.0]
   def change
     create_table :qr_post_tags do |t|

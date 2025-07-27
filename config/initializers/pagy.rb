@@ -14,7 +14,7 @@
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
 # Pagy::DEFAULT[:page]   = 1                                  # default
-Pagy::DEFAULT[:items]  = 10                                 # default
+Pagy::DEFAULT[:items] = 10                                 # default
 # Pagy::DEFAULT[:outset] = 0                                  # default
 
 
@@ -38,7 +38,7 @@ Pagy::DEFAULT[:items]  = 10                                 # default
 
 # Array extra: Paginate arrays efficiently, avoiding expensive array-wrapping and without overriding
 # See https://ddnexus.github.io/pagy/extras/array
-#require 'pagy/extras/array'
+# require 'pagy/extras/array'
 
 # Calendar extra: Add pagination filtering by calendar time unit (year, quarter, month, week, day)
 # See https://ddnexus.github.io/pagy/extras/calendar

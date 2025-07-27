@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module Qr
   def self.table_name_prefix
-    "qr_"
+    'qr_'
   end
 end

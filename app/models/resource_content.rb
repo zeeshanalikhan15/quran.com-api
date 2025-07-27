@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # == Schema Information
 # Schema version: 20230313013539
 #
@@ -87,8 +88,8 @@ class ResourceContent < ApplicationRecord
     if name.present?
       list = joins(:author)
       name_query = "%#{name.strip.downcase}%"
-      by_name = list.where("LOWER(resource_contents.name) ilike ?", name_query)
-      by_author_name = list.where("LOWER(authors.name) ilike ?", name_query)
+      by_name = list.where('LOWER(resource_contents.name) ilike ?', name_query)
+      by_author_name = list.where('LOWER(authors.name) ilike ?', name_query)
 
       by_name.or(by_author_name)
     elsif ids.present?
@@ -105,11 +106,11 @@ class ResourceContent < ApplicationRecord
     list = self
 
     if before && after
-      list.where("updated_at BETWEEN ? and ?", before, after)
+      list.where('updated_at BETWEEN ? and ?', before, after)
     elsif before
-      list.where("updated_at < ?", before)
+      list.where('updated_at < ?', before)
     elsif after
-      list.where("updated_at >= ?", after)
+      list.where('updated_at >= ?', after)
     else
       list
     end

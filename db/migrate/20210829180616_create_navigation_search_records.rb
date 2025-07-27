@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateNavigationSearchRecords < ActiveRecord::Migration[6.1]
   def change
     create_table :navigation_search_records do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddKfqcUthmaniHafs < ActiveRecord::Migration[6.1]
   def change
     # New and improve Indopak script

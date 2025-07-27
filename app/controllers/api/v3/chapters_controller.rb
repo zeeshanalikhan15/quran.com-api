@@ -10,14 +10,13 @@ module Api::V3
 
     def show
       if @presenter.chapter.nil?
-        render_404("Surah not found")
+        render_404('Surah not found')
       else
         render
       end
     end
 
     protected
-
     def init_presenter
       @presenter = ChapterPresenter.new(params, fetch_locale)
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 # Schema version: 20230313013539
 #
@@ -26,5 +28,5 @@ class Qr::Comment < QrRecord
   belongs_to :parent, counter_cache: :replies_count, optional: true, class_name: 'Qr::Comment'
 
   has_many :replies, class_name: 'Qr::Comment', foreign_key: :parent_id
-  has_many :recent_replies, -> {order('qr_comments.created_at DESC').limit(10)}, class_name: 'Qr::Comment', foreign_key: :parent_id
+  has_many :recent_replies, -> { order('qr_comments.created_at DESC').limit(10) }, class_name: 'Qr::Comment', foreign_key: :parent_id
 end

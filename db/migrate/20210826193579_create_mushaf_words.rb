@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMushafWords < ActiveRecord::Migration[6.1]
   def change
     create_table :mushaf_words do |t|
@@ -18,5 +20,3 @@ class CreateMushafWords < ActiveRecord::Migration[6.1]
     end
   end
 end
-
-

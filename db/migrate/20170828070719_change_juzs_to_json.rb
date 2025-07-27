@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeJuzsToJson < ActiveRecord::Migration[5.0]
   def change
     add_column :juzs, :verse_mapping_json, :json
@@ -10,5 +12,3 @@ class ChangeJuzsToJson < ActiveRecord::Migration[5.0]
     rename_column :juzs, :verse_mapping_json, :verse_mapping
   end
 end
-
-

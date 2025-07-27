@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Audio::PercentilePresenter < Audio::SegmentPresenter
   def ayah_cumulative_percentile
     filters = {

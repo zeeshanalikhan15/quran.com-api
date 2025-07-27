@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :v4 do
   # verses routes, by juz, chapter, page
   namespace :verses do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :qdc do
   namespace :qr do
     get :reflections, to: 'reflections#index'
@@ -19,7 +21,7 @@ namespace :qdc do
   namespace :resources do
     get :translations
     get 'translations/:translation_id/info', action: 'translation_info'
-    #TODO: deprecate this, we can add query string in /translations path for filtering
+    # TODO: deprecate this, we can add query string in /translations path for filtering
     get 'translations/filter', action: 'filter'
     get :tafsirs
     get 'tafsirs/:tafsir_id/info', action: 'tafsir_info'

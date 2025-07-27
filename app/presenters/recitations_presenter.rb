@@ -39,12 +39,11 @@ class RecitationsPresenter < BasePresenter
     if (id = recitation_id)
       finder.load_audio(filter, id)
     else
-      raise_404("Recitation not found")
+      raise_404('Recitation not found')
     end
   end
 
   protected
-
   def recitation_id
     strong_memoize :approved_recitation do
       if params[:recitation_id]

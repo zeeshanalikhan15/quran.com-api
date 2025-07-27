@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V3::VersesController, type: :routing do
   describe 'routing' do
-    it 'should not support edit verse route' do
+    it 'does not support edit verse route' do
       expect(get: 'api/v3/chapters/1/verses/1/edit').not_to be_routable
     end
 

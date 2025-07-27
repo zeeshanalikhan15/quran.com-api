@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateArabicTransliterations < ActiveRecord::Migration[5.0]
   def change
 =begin

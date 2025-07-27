@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateChapterInfos < ActiveRecord::Migration[5.0]
   def change
     create_table :chapter_infos do |t|

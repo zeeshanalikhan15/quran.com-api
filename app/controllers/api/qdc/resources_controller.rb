@@ -24,7 +24,7 @@ module Api::Qdc
       if @translation = fetch_translation_resource
         render
       else
-        render_404("Translation not found")
+        render_404('Translation not found')
       end
     end
 
@@ -52,7 +52,7 @@ module Api::Qdc
       if @tafsir = fetch_tafsir_resource
         render
       else
-        render_404("Tafsir not found")
+        render_404('Tafsir not found')
       end
     end
 
@@ -80,7 +80,7 @@ module Api::Qdc
       if @resource = eager_load_translated_name(resource).first
         render
       else
-        render_404("Recitation not found")
+        render_404('Recitation not found')
       end
     end
 
@@ -117,7 +117,6 @@ module Api::Qdc
     end
 
     protected
-
     def load_translations
       list = ResourceContent
                .eager_load(:translated_name)

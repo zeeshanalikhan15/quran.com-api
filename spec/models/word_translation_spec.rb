@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: word_translations
@@ -24,9 +26,11 @@ RSpec.describe WordTranslation, type: :model do
     it {
       expect(subject).to belong_to(:word)
     }
+
     it {
       expect(subject).to belong_to(:language)
     }
+
     it {
       expect(subject).to belong_to(:resource_content)
     }

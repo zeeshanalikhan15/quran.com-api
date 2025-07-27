@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddQurabicAudioRelatedChanges < ActiveRecord::Migration[6.1]
   def change
     add_column :verses, :pause_words_count, :integer, default: 0

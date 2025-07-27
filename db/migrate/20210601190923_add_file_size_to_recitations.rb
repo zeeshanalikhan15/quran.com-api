@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFileSizeToRecitations < ActiveRecord::Migration[6.1]
   def change
     change_column :audio_recitations, :files_size, :float

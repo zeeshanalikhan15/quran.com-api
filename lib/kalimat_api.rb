@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faraday'
 
 class KalimatApi
@@ -38,7 +40,6 @@ class KalimatApi
   end
 
   protected
-
   def per_page(result_count)
     val = (result_count.presence || 20).to_i.abs
 
@@ -75,13 +76,13 @@ class KalimatApi
   def api_error_message(code)
     case code.to_i
     when 500
-      "Internal Server Error."
+      'Internal Server Error.'
     when 503
-      "A problem to handle your request, due to over capacity or unavailability."
+      'A problem to handle your request, due to over capacity or unavailability.'
     when 401
-      "Unauthorized."
+      'Unauthorized.'
     when 505
-      "A problem to handle your request, due to over capacity or unavailability."
+      'A problem to handle your request, due to over capacity or unavailability.'
     end
   end
 

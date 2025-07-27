@@ -114,7 +114,7 @@ class VersesPresenter < BasePresenter
         translations: fetch_translations,
         audio: fetch_audio
       )
-      raise_404("Ayah not found") unless result
+      raise_404('Ayah not found') unless result
 
       result
     end
@@ -229,7 +229,6 @@ class VersesPresenter < BasePresenter
   end
 
   protected
-
   def chapter_ids
     verses.pluck(:chapter_id).uniq
   end

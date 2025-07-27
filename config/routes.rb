@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 class ActionDispatch::Routing::Mapper
   def draw_routes(routes_name)
-    instance_eval(File.read(Rails.root.join("config/routes", "#{@scope[:shallow_prefix]}", "#{routes_name}.rb")))
+    instance_eval(File.read(Rails.root.join('config/routes', "#{@scope[:shallow_prefix]}", "#{routes_name}.rb")))
   end
 end
 
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   # anyone access it to play with API is a good tool
   # mount GraphQL::Playground::Engine, at: "/graphql-playground", graphql_path: "/graphql"
   post '/graphql', to: 'graphql#execute'
-  post "/internal/sync_api_client", to: "api_clients#sync"
+  post '/internal/sync_api_client', to: 'api_clients#sync'
 
   namespace :kalimat do
     get '/search', to: 'search#search'
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :api, defaults: {format: :json} do
+  namespace :api, defaults: { format: :json } do
     draw_routes :qdc
     draw_routes :v4
     draw_routes :v3
